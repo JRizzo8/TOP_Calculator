@@ -100,12 +100,6 @@
     font-size: 28px;
     font-weight: bold;
 }
-.clearHistory{
-    color: #aaa;
-    font-size: 28px;
-    float:bottom;
-    font-weight: bold;
-}
   
 .close:hover,
 .close:focus {
