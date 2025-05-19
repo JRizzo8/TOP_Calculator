@@ -19,7 +19,7 @@ const buttonValues = ['AC','DEL','ðŸ™‚','/','7', '8', '9','x', '4', '5', '6', 'â
 //ctrl+shift+u then type either 2013 or 2014 then enter for en or em dash respectively.
 
 
-//initial functions
+//functions
 function createCalculatorButtons(buttonValues) { 
 //create calculator buttons
     buttonValues.forEach(value => {
@@ -235,6 +235,7 @@ function processDelete() {
 function calculateAndDisplayResult() {
     //logic to calculate and display result
     inputCount = 0;
+    //reset inputCount so after result is displayed, display will be cleared
     console.log(`operater: ${operator}, number1: ${number1}, number2: ${number2}`);
     function checkResult(result){
         if (result.toString().length > 15) {
@@ -242,7 +243,9 @@ function calculateAndDisplayResult() {
             return;
         }else{
             if (result % 1 != 0) {
+            //check if result is a decimal
                 result = result.toFixed(2);
+                //rounds to 2 decimal places
                 return result;
             }else{
                 return result;
