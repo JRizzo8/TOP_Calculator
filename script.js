@@ -238,7 +238,6 @@ function processDelete() {
 function calculateAndDisplayResult() {
     //logic to calculate and display result
     inputCount = 0;
-    operator = '';
     console.log(`operater: ${operator}, number1: ${number1}, number2: ${number2}`);
     function checkResult(result){
         if (result.toString().length > 15) {
@@ -281,6 +280,7 @@ function calculateAndDisplayResult() {
         break; 
     }
     updateHistory(number1, number2, operator, checkedResult);
+    operator = '';
 }
 
 function updateHistory(number1, number2, operator, result){
