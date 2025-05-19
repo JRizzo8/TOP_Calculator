@@ -131,7 +131,7 @@ function processOperator(btnValue) {
                     operator = '/';
                 break;
                 case '–':
-                    operator = '-';
+                    operator = '–';
                 break;
                 case '+':
                     operator = '+';
@@ -147,12 +147,12 @@ function processOperator(btnValue) {
             return;
         }
     }else {
-        equalCheck = 'yes';
         if (operators.includes(btnValue)) {
             alert('only one operator please');
             return;
         }else{
             number2 = parseFloat(number2);
+            equalCheck = 'yes';
             calculateAndDisplayResult();
         }
     }
@@ -187,12 +187,6 @@ function displayChecks(btnValue){
             alert('Max input length reached, clear display to continue');
             return;
         }
-    }
-}
-
-function checkIfMathHasBeenDone() {
-    if (equalCheck == 'yes') {
-
     }
 }
 
@@ -270,7 +264,7 @@ function calculateAndDisplayResult() {
         break;
         case '/':
             if (number2 == 0) {
-                alert('Bruh, Really?');
+                display.innerText = 'Bruh, Really?';
                 return;
             }else {
                 result = number1 / number2;
@@ -281,6 +275,7 @@ function calculateAndDisplayResult() {
     }
     updateHistory(number1, number2, operator, checkedResult);
     operator = '';
+    number2 = 0;
 }
 
 function updateHistory(number1, number2, operator, result){
@@ -297,7 +292,7 @@ function updateHistory(number1, number2, operator, result){
         History.pop();
         History.unshift(historyItem);
     }
-    while (historyList.hasChildElements()){
+    while (historyList.hasChildNodes()){
             historyList.removeChild(historyList.lastChild);
         }
     History.forEach (item => {
