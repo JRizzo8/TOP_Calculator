@@ -9,6 +9,7 @@ const historyList = document.getElementById('historyList');
 let number1 = 0;
 let number2 = 0;
 let operator = '';
+let equalCheck = 'no';
 let periodCheck = 'no';
 let inputCount = 0; //mainly for keeping track of if its the first click to clear display
 const display = document.getElementById('display');
@@ -87,8 +88,6 @@ function handleButtonClick(event) {
     }else {
         displayChecks(btnValue);
     }
-    
-    console.log(`Button clicked: ${btnValue}`);
 }
 
 window.onclick = function(event) {
@@ -143,10 +142,12 @@ function processOperator(btnValue) {
             }
             display.innerText += btnValue;
         }else{
+
             alert('Please enter an operator first');
             return;
         }
     }else {
+        equalCheck = 'yes';
         if (operators.includes(btnValue)) {
             alert('only one operator please');
             return;
@@ -186,6 +187,12 @@ function displayChecks(btnValue){
             alert('Max input length reached, clear display to continue');
             return;
         }
+    }
+}
+
+function checkIfMathHasBeenDone() {
+    if (equalCheck == 'yes') {
+
     }
 }
 
@@ -230,6 +237,8 @@ function processDelete() {
 
 function calculateAndDisplayResult() {
     //logic to calculate and display result
+    inputCount = 0;
+    operator = '';
     console.log(`operater: ${operator}, number1: ${number1}, number2: ${number2}`);
     function checkResult(result){
         if (result.toString().length > 15) {
