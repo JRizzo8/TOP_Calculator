@@ -114,6 +114,9 @@ function processSmile(){
         alert('not enough length for the "secret number", leave at least 5 digits');
         return;
     }
+    if (operator != ''){
+        number2 += smileValue;
+    }
 }
 
 function processOperator(btnValue) {
