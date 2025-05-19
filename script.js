@@ -276,26 +276,23 @@ function calculateAndDisplayResult() {
 
 function updateHistory(number1, number2, operator, result){
     //logic to update history
-    if (History.length < 5) {
         const historyItem = {
             number1: number1,
             operator: operator,
             number2: number2,
             result: result
         };
+    if (History.length < 5) {
         History.unshift(historyItem);
     }else {
         History.pop();
-        const historyItem = {
-            number1: number1,
-            operator: operator,
-            number2: number2,
-            result: result
-        };
         History.unshift(historyItem);
     }
-
+    while (historyList.hasChildElements()){
+            historyList.removeChild(historyList.lastChild);
+        }
     History.forEach (item => {
+
         const historyItem = document.createElement('li');
         historyItem.innerText = `${item.number1}${item.operator}${item.number2} = ${item.result}`;
         historyList.appendChild(historyItem);
